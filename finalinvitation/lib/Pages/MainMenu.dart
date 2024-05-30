@@ -1,3 +1,4 @@
+import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
 
@@ -32,7 +33,7 @@ class MainMenu extends StatelessWidget {
                 // Navigate to the next page (play)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Disclaimer()),
+                  MaterialPageRoute(builder: (context) => Gameplay3()),
                 );
               },
               child: Image.asset(
