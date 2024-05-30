@@ -1,8 +1,7 @@
+import 'package:deadwhispers/Pages/enterUsername.dart';
+import 'package:deadwhispers/Pages/listUsers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
-
-import 'package:deadwhispers/Pages/Act1.dart/Disclaimer.dart';
-import 'package:deadwhispers/Pages/Act1.dart/HowToPlay.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -29,11 +28,8 @@ class MainMenu extends StatelessWidget {
                 0.2, // Adjust left position as needed
             child: GestureDetector(
               onTap: () {
-                // Navigate to the next page (play)
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Disclaimer()),
-                );
+                // Enter their names before playing the game
+                enterUsername(context);
               },
               child: Image.asset(
                 'assets/images/button_play.png',
@@ -49,10 +45,10 @@ class MainMenu extends StatelessWidget {
                 0.2, // Adjust left position as needed
             child: GestureDetector(
               onTap: () {
-                // Navigate to the next page (how to play)
+                // Navigate to the list of players
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HowToPlay()),
+                  MaterialPageRoute(builder: (context) => ListUsers()),
                 );
               },
               child: Image.asset(
