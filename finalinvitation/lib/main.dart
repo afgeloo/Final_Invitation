@@ -13,7 +13,6 @@ class FinalInvitation extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainMenu(),
-      //Angelo's added code
     );
   }
 }
