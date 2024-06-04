@@ -1,8 +1,8 @@
-import 'package:deadwhispers/Pages/Act1.dart/Gameplay1BBB.dart';
+import 'package:deadwhispers/Pages/Act1/Gameplay1BB.dart';
 import 'package:flutter/material.dart';
 
-class Gameplay1BB extends StatelessWidget {
-  const Gameplay1BB({super.key});
+class Gameplay1B extends StatelessWidget {
+  const Gameplay1B({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class Gameplay1BB extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Gameplay1BBB()),
+          MaterialPageRoute(builder: (context) => Gameplay1BB()),
         );
       },
       child: Scaffold(
@@ -21,7 +21,7 @@ class Gameplay1BB extends StatelessWidget {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/gameplay1BB.png'),
+                  image: AssetImage('assets/images/gameplay1B.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -32,3 +32,4 @@ class Gameplay1BB extends StatelessWidget {
     );
   }
 }
+

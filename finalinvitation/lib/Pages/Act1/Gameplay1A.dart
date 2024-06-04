@@ -1,4 +1,4 @@
-import 'package:deadwhispers/Pages/Act1.dart/Gameplay1AA.dart';
+import 'package:deadwhispers/Pages/Act1/Gameplay1AA.dart';
 import 'package:flutter/material.dart';
 
 class Gameplay1A extends StatelessWidget {

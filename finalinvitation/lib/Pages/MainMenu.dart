@@ -2,8 +2,8 @@ import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
 
-import 'package:deadwhispers/Pages/Act1.dart/Disclaimer.dart';
-import 'package:deadwhispers/Pages/Act1.dart/HowToPlay.dart';
+import 'package:deadwhispers/Pages/Act1/Disclaimer.dart';
+import 'package:deadwhispers/Pages/Act1/HowToPlay.dart';
 
 class MainMenu extends StatelessWidget {
   const MainMenu({Key? key}) : super(key: key);

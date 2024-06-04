@@ -1,4 +1,4 @@
-import 'package:deadwhispers/Pages/Act1.dart/Gameplay.dart';
+import 'package:deadwhispers/Pages/Act1/Gameplay.dart';
 import 'package:flutter/material.dart';
 
 class Disclaimer extends StatelessWidget {
