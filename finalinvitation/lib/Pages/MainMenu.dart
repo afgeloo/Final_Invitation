@@ -33,7 +33,7 @@ class MainMenu extends StatelessWidget {
                 // Navigate to the next page (play)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Gameplay3()),
+                  MaterialPageRoute(builder: (context) => Disclaimer()),
                 );
               },
               child: Image.asset(
