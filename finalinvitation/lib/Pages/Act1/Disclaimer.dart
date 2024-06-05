@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-// ako ay may lobo lumipad sa langit
+// as
 class Disclaimer extends StatefulWidget {
   const Disclaimer({Key? key}) : super(key: key);
 
