@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-// ako
+// akoako
 class Disclaimer extends StatefulWidget {
   const Disclaimer({Key? key}) : super(key: key);
 
