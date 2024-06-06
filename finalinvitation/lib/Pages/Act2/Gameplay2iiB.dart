@@ -1,6 +1,6 @@
-import 'package:deadwhispers/Pages/Act1/Gameplay1AA.dart';
-import 'package:deadwhispers/Pages/Act2/Gameplay2.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2iiBB.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -27,6 +27,7 @@ class _Gameplay2iiBState extends State<Gameplay2iiB> {
         _isTextComplete = true;
       });
     } else {
+      FlameAudio.play('glitch.mp3', volume: soundVolume);
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Gameplay2iiBB()),

@@ -14,7 +14,6 @@ class FinalInvitation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FlameAudio.bgm.initialize();
-    FlameAudio.bgm.play('bgm.mp3', volume: soundVolume);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainMenu(),

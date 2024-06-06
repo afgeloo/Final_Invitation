@@ -1,9 +1,7 @@
-import 'package:deadwhispers/Pages/Act5/conclusion.dart';
 import 'package:deadwhispers/Pages/MainMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-
 
 class conclusion extends StatefulWidget {
   const conclusion({Key? key}) : super(key: key);
@@ -56,7 +54,6 @@ class _conclusionState extends State<conclusion> {
               ),
             ),
             Positioned(
-              
               top: 290,
               left: 0,
               right: 0,

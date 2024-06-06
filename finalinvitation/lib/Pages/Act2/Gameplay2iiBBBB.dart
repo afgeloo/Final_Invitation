@@ -1,5 +1,4 @@
-import 'package:deadwhispers/Pages/Act2/Gameplay2.dart';
-import 'package:deadwhispers/Pages/Act2/Gameplay2ii.dart';
+import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -28,7 +27,7 @@ class _Gameplay2iiBBBBState extends State<Gameplay2iiBBBB> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Gameplay2iiBBBB()),
+        MaterialPageRoute(builder: (context) => Gameplay3()),
       ).then((_) {
         setState(() {
           _isTextComplete = false;

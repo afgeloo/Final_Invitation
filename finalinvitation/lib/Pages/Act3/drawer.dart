@@ -1,4 +1,7 @@
+import 'package:deadwhispers/Pages/Act4/Gameplay4.dart';
 import 'package:deadwhispers/Pages/MainMenu.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -12,19 +15,12 @@ class DrawerPage extends StatefulWidget {
 }
 
 class DrawerPageState extends State<DrawerPage> {
-  late AudioPlayer audioPlayer;
   int tapCount = 0;
 
   @override
   void initState() {
     super.initState();
-    audioPlayer = AudioPlayer();
-    loadSound('drawer.mp3');
-  }
-
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.play();
+    FlameAudio.play('drawer.mp3', volume: soundVolume);
   }
 
   void _handleTap() {
@@ -36,8 +32,9 @@ class DrawerPageState extends State<DrawerPage> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  MainMenu()), // Replace with your game over screen widget
+                  Gameplay4()), // Replace with your game over screen widget
         );
+        FlameAudio.play('vibrate.mp3', volume: soundVolume);
       }
     });
   }

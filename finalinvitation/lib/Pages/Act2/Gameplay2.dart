@@ -1,5 +1,3 @@
-import 'package:deadwhispers/Pages/Act1/Gameplay1AA.dart';
-import 'package:deadwhispers/Pages/Act2/Gameplay2.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2i.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

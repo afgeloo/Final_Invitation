@@ -1,10 +1,10 @@
-import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
+import 'package:deadwhispers/Pages/Act1/Disclaimer.dart';
 import 'package:deadwhispers/Pages/Act4/Gameplay4.dart';
+import 'package:deadwhispers/main.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
 
-import 'package:deadwhispers/Pages/Act1/Disclaimer.dart';
 import 'package:deadwhispers/Pages/Act1/HowToPlay.dart';
 
 class MainMenu extends StatelessWidget {
@@ -12,6 +12,7 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FlameAudio.bgm.play('bgm.mp3', volume: soundVolume);
     return Scaffold(
       body: Stack(
         children: [
@@ -35,7 +36,9 @@ class MainMenu extends StatelessWidget {
                 // Navigate to the next page (play)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Gameplay4()),////////////MaterialPageRoute(builder: (context) => Disclaimer())
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          Disclaimer()), ////////////MaterialPageRoute(builder: (context) => Disclaimer())
                 );
               },
               child: Image.asset(

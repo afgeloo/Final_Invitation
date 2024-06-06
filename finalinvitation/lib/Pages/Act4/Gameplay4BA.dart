@@ -1,5 +1,3 @@
-import 'package:deadwhispers/Pages/Act4/Gameplay4BA1.dart';
-import 'package:deadwhispers/Pages/Act4/Gameplay4BB.dart';
 import 'package:deadwhispers/Pages/Act5/badEnd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -29,7 +27,8 @@ class _Gameplay4BAState extends State<Gameplay4BA> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => badEnd()), //////////////////////
+        MaterialPageRoute(
+            builder: (context) => badEnd()), //////////////////////
       ).then((_) {
         setState(() {
           _isTextComplete = false;

@@ -1,5 +1,3 @@
-import 'package:deadwhispers/Pages/Act4/Gameplay41.dart';
-import 'package:deadwhispers/Pages/Act4/Gameplay4B.dart';
 import 'package:deadwhispers/Pages/Act5/altEnd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -73,16 +71,18 @@ class _Gameplay4BBState extends State<Gameplay4BB> {
                       fontSize: 20,
                     ),
                     child: _isTextComplete
-                            ? Text(
-                                'With a sense of unease weighing heavily upon you, you choose to leave the funeral room behind, hoping to escape the oppressive atmosphere that seems to permeate every corner. As you step outside, a feeling of relief washes over you, and you breathe a sigh of relief as the presence of the room fades into the distance. However, a lingering sense of foreboding lingers in the back of your mind, a reminder that some secrets are best left undisturbed.',                                textAlign: TextAlign.start,
-                              )
-                            : AnimatedTextKit(
-                                animatedTexts: [
-                                  TypewriterAnimatedText(
-                                    'With a sense of unease weighing heavily upon you, you choose to leave the funeral room behind, hoping to escape the oppressive atmosphere that seems to permeate every corner. As you step outside, a feeling of relief washes over you, and you breathe a sigh of relief as the presence of the room fades into the distance. However, a lingering sense of foreboding lingers in the back of your mind, a reminder that some secrets are best left undisturbed.',                                  textAlign: TextAlign.start,
-                                    speed: Duration(milliseconds: 50),
-                                  ),
-                                ],
+                        ? Text(
+                            'With a sense of unease weighing heavily upon you, you choose to leave the funeral room behind, hoping to escape the oppressive atmosphere that seems to permeate every corner. As you step outside, a feeling of relief washes over you, and you breathe a sigh of relief as the presence of the room fades into the distance. However, a lingering sense of foreboding lingers in the back of your mind, a reminder that some secrets are best left undisturbed.',
+                            textAlign: TextAlign.start,
+                          )
+                        : AnimatedTextKit(
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                'With a sense of unease weighing heavily upon you, you choose to leave the funeral room behind, hoping to escape the oppressive atmosphere that seems to permeate every corner. As you step outside, a feeling of relief washes over you, and you breathe a sigh of relief as the presence of the room fades into the distance. However, a lingering sense of foreboding lingers in the back of your mind, a reminder that some secrets are best left undisturbed.',
+                                textAlign: TextAlign.start,
+                                speed: Duration(milliseconds: 50),
+                              ),
+                            ],
                             totalRepeatCount: 1,
                             pause: Duration(milliseconds: 1000),
                             isRepeatingAnimation: false,

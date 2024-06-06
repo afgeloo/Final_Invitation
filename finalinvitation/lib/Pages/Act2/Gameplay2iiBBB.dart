@@ -1,6 +1,3 @@
-import 'package:deadwhispers/Pages/Act1/Gameplay1BBBA.dart';
-import 'package:deadwhispers/Pages/Act1/Gameplay1BBBB.dart';
-import 'package:deadwhispers/Pages/Act2/Gameplay2iiAA.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2iiAAA.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2iiBBBB.dart';
 import 'package:deadwhispers/main.dart';

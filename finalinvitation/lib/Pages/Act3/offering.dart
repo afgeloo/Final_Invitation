@@ -1,4 +1,6 @@
 import 'package:deadwhispers/Pages/gameoverscreen.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -15,7 +17,6 @@ class Offering extends StatefulWidget {
 
 class _OfferingState extends State<Offering>
     with SingleTickerProviderStateMixin {
-  late AudioPlayer audioPlayer;
   Timer? _brightnessTimer;
   bool _isBrightnessOn = true;
   late AnimationController _controller;
@@ -33,7 +34,6 @@ class _OfferingState extends State<Offering>
       parent: _controller,
       curve: Curves.easeInOut,
     );
-    audioPlayer = AudioPlayer();
   }
 
   @override
@@ -42,17 +42,12 @@ class _OfferingState extends State<Offering>
     super.dispose();
   }
 
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.play();
-  }
-
   void _handleTap() {
     setState(() {
       tapCount++;
 
       if (tapCount == 2) {
-        loadSound('wolf_howl.mp3');
+        FlameAudio.play('wolf_howl.mp3', volume: soundVolume);
       }
       if (tapCount >= 4) {
         _brightnessTimer = Timer.periodic(Duration(milliseconds: 500), (timer) {
@@ -64,7 +59,7 @@ class _OfferingState extends State<Offering>
       }
 
       if (tapCount == 6) {
-        loadSound('jumpscare.mp3');
+        FlameAudio.play('jumpscare.mp3', volume: soundVolume);
         Future.delayed(Duration(seconds: 1), () {
           _controller.forward();
         });

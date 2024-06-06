@@ -1,5 +1,7 @@
 import 'package:deadwhispers/Pages/Act3/basement.dart';
 import 'package:deadwhispers/Pages/Act3/offering.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -13,19 +15,12 @@ class Cabin extends StatefulWidget {
 }
 
 class _CabinState extends State<Cabin> {
-  late AudioPlayer audioPlayer;
   int tapCount = 0;
 
   @override
   void initState() {
     super.initState();
-    audioPlayer = AudioPlayer();
-    loadSound('growl.mp3');
-  }
-
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.play();
+    FlameAudio.play('growl.mp3', volume: soundVolume);
   }
 
   void _handleTap() {

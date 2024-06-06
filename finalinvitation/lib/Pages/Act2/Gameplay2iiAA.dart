@@ -1,5 +1,3 @@
-import 'package:deadwhispers/Pages/Act1/Gameplay1BBBA.dart';
-import 'package:deadwhispers/Pages/Act1/Gameplay1BBBB.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2iiAAA.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2iiBBBB.dart';
 import 'package:deadwhispers/main.dart';
@@ -33,7 +31,7 @@ class _Gameplay2iiAAState extends State<Gameplay2iiAA> {
 
   @override
   Widget build(BuildContext context) {
-    // FlameAudio.play('vibrate.mp3', volume: soundVolume);
+    FlameAudio.play('FlippingBook.mp3', volume: soundVolume);
     return GestureDetector(
       onTap: _onTap,
       child: Scaffold(

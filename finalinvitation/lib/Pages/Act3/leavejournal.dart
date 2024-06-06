@@ -1,4 +1,6 @@
 import 'package:deadwhispers/Pages/gameoverscreen.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -13,7 +15,6 @@ class LeaveJournal extends StatefulWidget {
 
 class LeaveJournalState extends State<LeaveJournal>
     with SingleTickerProviderStateMixin {
-  late AudioPlayer audioPlayer;
   int tapCount = 0;
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -29,8 +30,7 @@ class LeaveJournalState extends State<LeaveJournal>
       parent: _controller,
       curve: Curves.easeInOut,
     );
-    audioPlayer = AudioPlayer();
-    loadSound('whispers.mp3');
+    FlameAudio.play('whispers.mp3', volume: soundVolume);
   }
 
   @override
@@ -39,17 +39,12 @@ class LeaveJournalState extends State<LeaveJournal>
     super.dispose();
   }
 
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.play();
-  }
-
   void _handleTap() {
     setState(() {
       tapCount++;
 
       if (tapCount == 4) {
-        loadSound('jumpscare.mp3');
+        FlameAudio.play('jumpscare.mp3', volume: soundVolume);
         Future.delayed(Duration(seconds: 1), () {
           _controller.forward();
         });

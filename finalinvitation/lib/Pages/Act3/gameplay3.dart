@@ -1,4 +1,6 @@
 import 'package:deadwhispers/audio.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -14,20 +16,13 @@ class Gameplay3 extends StatefulWidget {
 }
 
 class _Gameplay3State extends State<Gameplay3> {
-  final AudioManager audioManager = AudioManager();
-  late AudioPlayer audioPlayer;
   int tapCount = 0;
 
   @override
   void initState() {
     super.initState();
-    audioManager.loadAndPlay('gameplay3.mp3');
-  }
-
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.setLoopMode(LoopMode.one);
-    audioPlayer.play();
+    FlameAudio.bgm.initialize();
+    FlameAudio.bgm.play('gameplay3.mp3', volume: soundVolume);
   }
 
   void _handleTap() {

@@ -1,4 +1,6 @@
 import 'package:deadwhispers/Pages/gameoverscreen.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -12,7 +14,6 @@ class Journal extends StatefulWidget {
 }
 
 class JournalState extends State<Journal> with SingleTickerProviderStateMixin {
-  late AudioPlayer audioPlayer;
   int tapCount = 0;
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -28,8 +29,7 @@ class JournalState extends State<Journal> with SingleTickerProviderStateMixin {
       parent: _controller,
       curve: Curves.easeInOut,
     );
-    audioPlayer = AudioPlayer();
-    loadSound('page.mp3');
+    FlameAudio.play('page.mp3', volume: soundVolume);
   }
 
   @override
@@ -38,16 +38,11 @@ class JournalState extends State<Journal> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.play();
-  }
-
   void _handleTap() {
     setState(() {
       tapCount++;
       if (tapCount == 4) {
-        loadSound('jumpscare.mp3');
+        FlameAudio.play('jumpscare.mp3', volume: soundVolume);
         Future.delayed(Duration(seconds: 1), () {
           _controller.forward();
         });
