@@ -1,5 +1,6 @@
 import 'package:deadwhispers/Pages/Act1/Disclaimer.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 TextEditingController _nameController = TextEditingController();
@@ -25,9 +26,14 @@ void enterUsername(BuildContext context) {
           child: Dialog(
             backgroundColor: Colors.transparent,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(5.0),
               child: Container(
                 decoration: BoxDecoration(
+                  border: Border.all(
+                    // Define a border
+                    color: Colors.white, // Set border color
+                    width: 2.0, // Set border width
+                  ),
                   image: DecorationImage(
                     image: AssetImage('assets/images/enterUsernamebg.jpg'),
                     fit: BoxFit.cover,
@@ -43,9 +49,10 @@ void enterUsername(BuildContext context) {
                       children: [
                         Text(
                           "In Memoriam of..",
-                          style: TextStyle(
-                            fontSize: 25,
-                            color: Colors.yellow,
+                          style: GoogleFonts.creepster(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
 
@@ -57,10 +64,10 @@ void enterUsername(BuildContext context) {
                             controller: _nameController,
                             decoration: InputDecoration(
                               labelText: "Enter your name",
-                              labelStyle: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                              ),
+                              labelStyle: GoogleFonts.openSans(
+                                  color: Colors.white,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.white),
                               ),
@@ -68,9 +75,9 @@ void enterUsername(BuildContext context) {
                                 borderSide: BorderSide(color: Colors.white),
                               ),
                             ),
-                            style: TextStyle(
+                            style: GoogleFonts.openSans(
                               color: Colors.white,
-                              fontSize: 20,
+                              fontSize: 17,
                             ),
                           ),
                         ),
@@ -95,15 +102,19 @@ void enterUsername(BuildContext context) {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey,
+                            backgroundColor: Colors.black,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            minimumSize: Size(180, 40),
+                                borderRadius: BorderRadius.circular(5.0),
+                                side:
+                                    BorderSide(color: Colors.white, width: 1)),
+                            minimumSize: Size(160, 40),
                           ),
                           child: Text(
                             'Submit',
-                            style: TextStyle(fontSize: 18, color: Colors.white),
+                            style: GoogleFonts.openSans(
+                                fontSize: 17,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
 
@@ -112,18 +123,19 @@ void enterUsername(BuildContext context) {
                         ElevatedButton(
                           onPressed: () => Navigator.pop(context),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey,
+                            backgroundColor: Colors.black,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            minimumSize: Size(180, 40),
+                                borderRadius: BorderRadius.circular(5.0),
+                                side:
+                                    BorderSide(color: Colors.white, width: 1)),
+                            minimumSize: Size(160, 40),
                           ),
                           child: Text(
                             'Back',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                            ),
+                            style: GoogleFonts.openSans(
+                                fontSize: 17,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
