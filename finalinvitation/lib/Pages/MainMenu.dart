@@ -1,12 +1,38 @@
 import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
+import 'package:just_audio/just_audio.dart';
 
 import 'package:deadwhispers/Pages/Act1/Disclaimer.dart';
 import 'package:deadwhispers/Pages/Act1/HowToPlay.dart';
 
-class MainMenu extends StatelessWidget {
+class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
+
+  @override
+  MainMenuState createState() => MainMenuState();
+}
+
+class MainMenuState extends State<MainMenu> {
+  late AudioPlayer audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    audioPlayer = AudioPlayer();
+    // Load and play the default sound
+    loadSound('background_music.mp3');
+  }
+
+  Future<void> loadSound(String soundPath) async {
+    await audioPlayer.setAsset('assets/audios/$soundPath');
+    audioPlayer.setLoopMode(LoopMode.one);
+    audioPlayer.play();
+  }
+
+  void stopBackgroundMusic() {
+    audioPlayer.stop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +56,11 @@ class MainMenu extends StatelessWidget {
                 0.2, // Adjust left position as needed
             child: GestureDetector(
               onTap: () {
+                stopBackgroundMusic();
                 // Navigate to the next page (play)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Disclaimer()),
+                  MaterialPageRoute(builder: (context) => Gameplay3()),
                 );
               },
               child: Image.asset(
@@ -70,6 +97,7 @@ class MainMenu extends StatelessWidget {
                 0.2, // Adjust left position as needed
             child: GestureDetector(
               onTap: () {
+                stopBackgroundMusic();
                 // Exit the application
                 SystemNavigator
                     .pop(); // Use SystemNavigator.pop() to close the app

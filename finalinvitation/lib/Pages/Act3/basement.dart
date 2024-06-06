@@ -1,34 +1,18 @@
-import 'package:deadwhispers/audio.dart';
+import 'package:deadwhispers/Pages/Act3/dimension.dart';
+import 'package:deadwhispers/Pages/Act3/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:deadwhispers/Pages/Act3/follow.dart';
-import 'package:deadwhispers/Pages/Act3/cabin.dart';
-import 'package:just_audio/just_audio.dart';
 
-class Gameplay3 extends StatefulWidget {
-  const Gameplay3({Key? key}) : super(key: key);
+class Basement extends StatefulWidget {
+  const Basement({Key? key}) : super(key: key);
 
   @override
-  _Gameplay3State createState() => _Gameplay3State();
+  BasementState createState() => BasementState();
 }
 
-class _Gameplay3State extends State<Gameplay3> {
-  final AudioManager audioManager = AudioManager();
-  late AudioPlayer audioPlayer;
+class BasementState extends State<Basement> {
   int tapCount = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    audioManager.loadAndPlay('gameplay3.mp3');
-  }
-
-  Future<void> loadSound(String soundPath) async {
-    await audioPlayer.setAsset('assets/audios/$soundPath');
-    audioPlayer.setLoopMode(LoopMode.one);
-    audioPlayer.play();
-  }
 
   void _handleTap() {
     setState(() {
@@ -49,21 +33,21 @@ class _Gameplay3State extends State<Gameplay3> {
       content = AnimatedTextKit(
         animatedTexts: [
           TypewriterAnimatedText(
-            'A mysterious figure starts pushing logs to block the pathway and leashes a dog by the side of an abandoned cabin. The figure wears a dark cloak, and their face is obscured by shadows. The dog growls, sensing something unseen in the woods.',
+            'You decide to leave the offerings untouched, feeling uneasy about disturbing the altar. As you step away, your gaze falls upon the floor, where a faint glow catches your eye.',
             textStyle: GoogleFonts.openSans(
               fontSize: 13,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
-            speed: Duration(milliseconds: 50),
+            speed: Duration(milliseconds: 50), // Adjust typing speed here
           ),
         ],
-        totalRepeatCount: 1,
-        pause: Duration(milliseconds: 1000),
+        totalRepeatCount: 1, // Animation plays only once
+        pause: Duration(milliseconds: 1000), // Pause after animation completes
       );
     } else if (tapCount == 1) {
       content = Text(
-        'A mysterious figure starts pushing logs to block the pathway and leashes a dog by the side of an abandoned cabin. The figure wears a dark cloak, and their face is obscured by shadows. The dog growls, sensing something unseen in the woods.',
+        'You decide to leave the offerings untouched, feeling uneasy about disturbing the altar. As you step away, your gaze falls upon the floor, where a faint glow catches your eye.',
         style: GoogleFonts.openSans(
           fontSize: 13,
           fontWeight: FontWeight.bold,
@@ -74,21 +58,46 @@ class _Gameplay3State extends State<Gameplay3> {
       content = AnimatedTextKit(
         animatedTexts: [
           TypewriterAnimatedText(
-            'You have a vision of the future: a small child running into the woods, chased by a shadowy figure. The child’s face is filled with fear, and they are holding a tattered old book—the same book you found earlier.',
+            'Moving closer, you notice a symbol etched into the wooden boards, its intricate design pulsating with a faint, otherworldly light.',
             textStyle: GoogleFonts.openSans(
               fontSize: 13,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
-            speed: Duration(milliseconds: 50),
+            speed: Duration(milliseconds: 50), // Adjust typing speed here
           ),
         ],
-        totalRepeatCount: 1,
-        pause: Duration(milliseconds: 1000),
+        totalRepeatCount: 1, // Animation plays only once
+        pause: Duration(milliseconds: 1000), // Pause after animation completes
       );
     } else if (tapCount == 3) {
       content = Text(
-        'You have a vision of the future: a small child running into the woods, chased by a shadowy figure. The child’s face is filled with fear, and they are holding a tattered old book—the same book you found earlier.',
+        'Moving closer, you notice a symbol etched into the wooden boards, its intricate design pulsating with a faint, otherworldly light.',
+        style: GoogleFonts.openSans(
+          fontSize: 13,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      );
+    } else if (tapCount == 4) {
+      content = AnimatedTextKit(
+        animatedTexts: [
+          TypewriterAnimatedText(
+            'The symbol seems to beckon you, its presence both mysterious and compelling.',
+            textStyle: GoogleFonts.openSans(
+              fontSize: 13,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            speed: Duration(milliseconds: 50), // Adjust typing speed here
+          ),
+        ],
+        totalRepeatCount: 1, // Animation plays only once
+        pause: Duration(milliseconds: 1000), // Pause after animation completes
+      );
+    } else if (tapCount == 5) {
+      content = Text(
+        'The symbol seems to beckon you, its presence both mysterious and compelling.',
         style: GoogleFonts.openSans(
           fontSize: 13,
           fontWeight: FontWeight.bold,
@@ -106,16 +115,29 @@ class _Gameplay3State extends State<Gameplay3> {
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
-                image: AssetImage("assets/images/gameplay3.png"),
+                image: AssetImage("assets/images/basement.png"),
                 fit: BoxFit.cover,
-                alignment: Alignment.centerRight,
+                alignment: Alignment.center,
               ),
             ),
             child: Stack(
               children: [
-                if (tapCount < 4)
+                Positioned(
+                  bottom: 200,
+                  left: 0,
+                  right: -200,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: Image.asset(
+                      'assets/images/main.png', // Provide your image path here
+                      width: 600, // Adjust width according to your needs
+                      height: 600, // Adjust height according to your needs
+                    ),
+                  ),
+                ),
+                if (tapCount < 6)
                   Positioned(
-                    top: 120,
+                    top: 500,
                     left: 0,
                     right: 0,
                     child: Opacity(
@@ -138,24 +160,9 @@ class _Gameplay3State extends State<Gameplay3> {
                       ),
                     ),
                   ),
-                if (tapCount < 4)
+                if (tapCount >= 6)
                   Positioned(
-                    bottom: -100,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Image.asset(
-                        'assets/images/main.png',
-                        width: 700,
-                        height: 700,
-                      ),
-                    ),
-                  ),
-                if (tapCount >= 4)
-                  Positioned(
-                    top: 150,
+                    top: 400,
                     left: 0,
                     right: 0,
                     child: Column(
@@ -168,23 +175,27 @@ class _Gameplay3State extends State<Gameplay3> {
                                 borderRadius: BorderRadius.circular(5.0),
                                 side:
                                     BorderSide(color: Colors.white, width: 1)),
-                            minimumSize: Size(270, 40),
+                            minimumSize:
+                                Size(270, 40), // Fixed width and height
                           ),
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => FollowFigure()),
+                                  builder: (context) => Dimension()),
                             );
                           },
                           child: Text(
-                            'A. Follow the mysterious figure.',
+                            'A. Step onto the symbol.',
                             style: GoogleFonts.openSans(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
                           ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -193,16 +204,18 @@ class _Gameplay3State extends State<Gameplay3> {
                                 borderRadius: BorderRadius.circular(5.0),
                                 side:
                                     BorderSide(color: Colors.white, width: 1)),
-                            minimumSize: Size(270, 40),
+                            minimumSize:
+                                Size(270, 60), // Fixed width and height
                           ),
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Cabin()),
+                              MaterialPageRoute(
+                                  builder: (context) => DrawerPage()),
                             );
                           },
                           child: Text(
-                            'B. Inspect the dog and the cabin.',
+                            'B. Avoid the symbol and look \n          around the room.',
                             style: GoogleFonts.openSans(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
