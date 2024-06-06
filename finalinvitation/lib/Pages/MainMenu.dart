@@ -1,14 +1,30 @@
-import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
-import 'package:deadwhispers/Pages/Act4/Gameplay4.dart';
-import 'package:flame_audio/flame_audio.dart';
+import 'package:deadwhispers/audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
+import 'package:just_audio/just_audio.dart';
+import 'package:deadwhispers/Pages/enterUsername.dart';
+import 'package:deadwhispers/Pages/listUsers.dart';
 
-import 'package:deadwhispers/Pages/Act1/Disclaimer.dart';
-import 'package:deadwhispers/Pages/Act1/HowToPlay.dart';
-
-class MainMenu extends StatelessWidget {
+class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
+
+  @override
+  MainMenuState createState() => MainMenuState();
+}
+
+class MainMenuState extends State<MainMenu> {
+  final AudioManager audioManager = AudioManager();
+  late AudioPlayer audioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    audioManager.loadAndPlay('background_music.mp3');
+  }
+
+  void stopBackgroundMusic() {
+    audioManager.stop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +48,7 @@ class MainMenu extends StatelessWidget {
                 0.2, // Adjust left position as needed
             child: GestureDetector(
               onTap: () {
-                // Navigate to the next page (play)
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Gameplay4()),////////////MaterialPageRoute(builder: (context) => Disclaimer())
-                );
+                enterUsername(context);
               },
               child: Image.asset(
                 'assets/images/button_play.png',
@@ -55,7 +67,7 @@ class MainMenu extends StatelessWidget {
                 // Navigate to the next page (how to play)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HowToPlay()),
+                  MaterialPageRoute(builder: (context) => ListUsers()),
                 );
               },
               child: Image.asset(
@@ -72,6 +84,7 @@ class MainMenu extends StatelessWidget {
                 0.2, // Adjust left position as needed
             child: GestureDetector(
               onTap: () {
+                stopBackgroundMusic();
                 // Exit the application
                 SystemNavigator
                     .pop(); // Use SystemNavigator.pop() to close the app
