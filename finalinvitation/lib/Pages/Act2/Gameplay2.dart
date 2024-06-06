@@ -1,17 +1,18 @@
 import 'package:deadwhispers/Pages/Act1/Gameplay1AA.dart';
 import 'package:deadwhispers/Pages/Act2/Gameplay2.dart';
+import 'package:deadwhispers/Pages/Act2/Gameplay2i.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-class Gameplay1AAB extends StatefulWidget {
-  const Gameplay1AAB({Key? key}) : super(key: key);
+class Gameplay2 extends StatefulWidget {
+  const Gameplay2({Key? key}) : super(key: key);
 
   @override
-  _Gameplay1AABState createState() => _Gameplay1AABState();
+  _Gameplay2State createState() => _Gameplay2State();
 }
 
-class _Gameplay1AABState extends State<Gameplay1AAB> {
+class _Gameplay2State extends State<Gameplay2> {
   bool _isTextComplete = false;
 
   @override
@@ -28,7 +29,7 @@ class _Gameplay1AABState extends State<Gameplay1AAB> {
     } else {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Gameplay2()),
+        MaterialPageRoute(builder: (context) => Gameplay2i()),
       ).then((_) {
         setState(() {
           _isTextComplete = false;
@@ -49,13 +50,13 @@ class _Gameplay1AABState extends State<Gameplay1AAB> {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/gameplay1AAB.png'),
+                  image: AssetImage('assets/images/gameplay2.png'),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Positioned(
-              top: 570,
+              top: 30,
               left: 15,
               right: 15,
               child: Center(
@@ -73,13 +74,13 @@ class _Gameplay1AABState extends State<Gameplay1AAB> {
                     ),
                     child: _isTextComplete
                         ? Text(
-                            'You open the casket slightly, and an eerie whisper fills the room:\n\n"You have awakened us."\n\nThe phone screen flickers, showing distorted images of your relative.\n\n\nContinue...',
+                            'From these notes, you already know the stories behind the picture frames. These stories offer insights that lead you somewhere. Then, an unknown contact texts you:\n\n"Do not regret any of your actions.""\n\n\nContinue...',
                             textAlign: TextAlign.start,
                           )
                         : AnimatedTextKit(
                             animatedTexts: [
                               TypewriterAnimatedText(
-                                'As you slowly creep up to the casket, you notice that the picture frame on the right seems odd. You go towards it and realize that the rear part can be opened. Behind it, you find a note.\n\n\nContinue...',
+                                'From these notes, you already know the stories behind the picture frames. These stories offer insights that lead you somewhere. Then, an unknown contact texts you:\n\n"Do not regret any of your actions.""\n\n\nContinue...',
                                 textAlign: TextAlign.start,
                                 speed: Duration(milliseconds: 50),
                               ),
