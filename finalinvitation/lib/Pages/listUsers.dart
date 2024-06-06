@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ListUsers extends StatefulWidget {
@@ -40,11 +41,22 @@ class _ListUsersState extends State<ListUsers> {
             padding: const EdgeInsets.only(top: 80.0),
             child: Column(
               children: [
-                SizedBox(height: 50), // Add some space at the top
+                SizedBox(height: 100), // Add some space at the top
                 Center(
                   child: Text(
                     'In Memoriam of..',
-                    style: TextStyle(fontSize: 30, color: Colors.white),
+                    style: GoogleFonts.creepster(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 43, 43, 43),
+                      shadows: [
+                        Shadow(
+                          blurRadius: 8, // Adjust the blur radius as needed
+                          color: Colors.black.withOpacity(0.4), // Shadow color
+                          offset: Offset(2, 2), // Offset of the shadow
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -56,8 +68,20 @@ class _ListUsersState extends State<ListUsers> {
                           ..sort(); // Create a sorted copy of the list
                         return ListTile(
                           title: Text(sortedNames[index],
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
+                              style: GoogleFonts.mansalva(
+                                fontSize: 20,
+                                color: Color.fromARGB(255, 43, 43, 43),
+                                shadows: [
+                                  Shadow(
+                                    blurRadius:
+                                        8, // Adjust the blur radius as needed
+                                    color: Colors.black
+                                        .withOpacity(0.4), // Shadow color
+                                    offset:
+                                        Offset(2, 2), // Offset of the shadow
+                                  ),
+                                ],
+                              ),
                               textAlign: TextAlign.center),
                         );
                       },
@@ -73,11 +97,11 @@ class _ListUsersState extends State<ListUsers> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey,
+                        backgroundColor: Color(0xff3b3b3b),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        minimumSize: Size(180, 40),
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(color: Colors.white, width: 1)),
+                        minimumSize: Size(160, 40),
                       ),
                       child: Text(
                         'Back',
