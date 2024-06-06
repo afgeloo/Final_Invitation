@@ -1,6 +1,7 @@
-
 import 'package:deadwhispers/Pages/Act1/Gameplay1BBBA.dart';
 import 'package:deadwhispers/Pages/Act1/Gameplay1BBBB.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -30,6 +31,7 @@ class _Gameplay1BBBState extends State<Gameplay1BBB> {
 
   @override
   Widget build(BuildContext context) {
+    // FlameAudio.play('vibrate.mp3', volume: soundVolume);
     return GestureDetector(
       onTap: _onTap,
       child: Scaffold(
@@ -89,7 +91,8 @@ class _Gameplay1BBBState extends State<Gameplay1BBB> {
                       ),
                       if (_isTextComplete) ...[
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02, // Adjust this value to reduce space between text and buttons
+                          height: MediaQuery.of(context).size.height *
+                              0.02, // Adjust this value to reduce space between text and buttons
                         ),
                         GestureDetector(
                           onTap: () {
@@ -98,6 +101,7 @@ class _Gameplay1BBBState extends State<Gameplay1BBB> {
                               MaterialPageRoute(
                                   builder: (context) => Gameplay1BBBA()),
                             );
+                            FlameAudio.play('drawer.mp3', volume: soundVolume);
                           },
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.8,
@@ -109,7 +113,8 @@ class _Gameplay1BBBState extends State<Gameplay1BBB> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01, // Adjust this value to reduce space between buttons
+                          height: MediaQuery.of(context).size.height *
+                              0.01, // Adjust this value to reduce space between buttons
                         ),
                         GestureDetector(
                           onTap: () {
@@ -118,6 +123,8 @@ class _Gameplay1BBBState extends State<Gameplay1BBB> {
                               MaterialPageRoute(
                                   builder: (context) => Gameplay1BBBB()),
                             );
+                            FlameAudio.play('woodCreak.mp3',
+                                volume: soundVolume);
                           },
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.8,
