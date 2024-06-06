@@ -1,5 +1,7 @@
 import 'package:deadwhispers/Pages/Act1/Gameplay1AAA.dart';
 import 'package:deadwhispers/Pages/Act1/Gameplay1AAB.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -99,6 +101,8 @@ class _Gameplay1AAState extends State<Gameplay1AA> {
                               MaterialPageRoute(
                                   builder: (context) => Gameplay1AAA()),
                             );
+                            FlameAudio.play('vibrate.mp3',
+                                volume: soundVolume * 1.5);
                           },
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.8,
@@ -120,6 +124,7 @@ class _Gameplay1AAState extends State<Gameplay1AA> {
                               MaterialPageRoute(
                                   builder: (context) => Gameplay1AAB()),
                             );
+                            FlameAudio.play('casket.mp3', volume: soundVolume);
                           },
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.8,

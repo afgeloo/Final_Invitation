@@ -1,4 +1,6 @@
 import 'package:deadwhispers/Pages/Act1/Gameplay1BBB.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -25,6 +27,7 @@ class _Gameplay1BBState extends State<Gameplay1BB> {
         _isTextComplete = true;
       });
     } else {
+      FlameAudio.play('vibrate.mp3', volume: soundVolume);
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Gameplay1BBB()),
@@ -38,6 +41,7 @@ class _Gameplay1BBState extends State<Gameplay1BB> {
 
   @override
   Widget build(BuildContext context) {
+    // FlameAudio.play('paper.mp3', volume: soundVolume);
     return GestureDetector(
       onTap: _onTap,
       child: Scaffold(

@@ -1,4 +1,6 @@
 import 'package:deadwhispers/Pages/Act1/Gameplay1AA.dart';
+import 'package:deadwhispers/main.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -25,6 +27,7 @@ class _Gameplay1AState extends State<Gameplay1A> {
         _isTextComplete = true;
       });
     } else {
+      FlameAudio.play('paper.mp3', volume: soundVolume);
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Gameplay1AA()),
