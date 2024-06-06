@@ -1,4 +1,5 @@
 import 'package:deadwhispers/Pages/Act3/gameplay3.dart';
+import 'package:deadwhispers/Pages/Act4/Gameplay4.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Import SystemNavigator
@@ -34,7 +35,7 @@ class MainMenu extends StatelessWidget {
                 // Navigate to the next page (play)
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Disclaimer()),
+                  MaterialPageRoute(builder: (context) => Gameplay4()),////////////MaterialPageRoute(builder: (context) => Disclaimer())
                 );
               },
               child: Image.asset(

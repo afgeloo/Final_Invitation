@@ -40,7 +40,7 @@ class _Gameplay4BState extends State<Gameplay4B> {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(' '), /////////////////
+                  image: AssetImage('assets/images/gameplay4B.png'),
                   fit: BoxFit.cover,
                 ),
               ),

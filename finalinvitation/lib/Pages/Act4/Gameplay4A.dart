@@ -1,4 +1,4 @@
-import 'package:deadwhispers/Pages/Act4/Gameplay4B.dart';
+import 'package:deadwhispers/Pages/Act4/Gameplay4A1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -24,10 +24,19 @@ class _Gameplay4AState extends State<Gameplay4A> {
       setState(() {
         _isTextComplete = true;
       });
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Gameplay4A1()),
+      ).then((_) {
+        setState(() {
+          _isTextComplete = false;
+        });
+      });
     }
   }
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _onTap,
@@ -39,7 +48,7 @@ class _Gameplay4AState extends State<Gameplay4A> {
               height: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(' '), ////////////////////////////
+                  image: AssetImage('assets/images/gameplay4A.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -55,15 +64,13 @@ class _Gameplay4AState extends State<Gameplay4A> {
                     color: Colors.black.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  child: Column(
-                    children: [
-                      DefaultTextStyle(
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 226, 217, 217),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                        child: _isTextComplete
+                  child: DefaultTextStyle(
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 226, 217, 217),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                     child: _isTextComplete
                             ? Text(
                                 'Your curiosity gets the better of you, and you cautiously approach the casket. With trembling hands, you slowly lift the lid, revealing the dark interior within. As you peer inside, a wave of dread washes over you as you see yourself. The room around you begins to warp and distort, and you find yourself trapped within the confines of the coffin, surrounded by darkness and the echoes of your own fearful thoughts.',                                textAlign: TextAlign.start,
                               )
@@ -74,59 +81,15 @@ class _Gameplay4AState extends State<Gameplay4A> {
                                     speed: Duration(milliseconds: 50),
                                   ),
                                 ],
-                                totalRepeatCount: 1,
-                                pause: Duration(milliseconds: 1000),
-                                isRepeatingAnimation: false,
-                                onTap: () {
-                                  setState(() {
-                                    _isTextComplete = true;
-                                  });
-                                },
-                              ),
-                      ),
-                      if (_isTextComplete) ...[
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02, // Adjust this value to reduce space between text and buttons
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Gameplay4A()), ///////////////////////////
-                            );
-                          },
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            height: 50, // Adjust the height as needed
-                            child: Image.asset(
-                              'assets/images/button_A_gameplay1.png',
-                              fit: BoxFit.contain,
-                            ),
+                            totalRepeatCount: 1,
+                            pause: Duration(milliseconds: 1000),
+                            isRepeatingAnimation: false,
+                            onTap: () {
+                              setState(() {
+                                _isTextComplete = true;
+                              });
+                            },
                           ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01, // Adjust this value to reduce space between buttons
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Gameplay4B()), ///////////////////////
-                            );
-                          },
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            height: 50, // Adjust the height as needed
-                            child: Image.asset(
-                              'assets/images/button_B_gameplay1.png',
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      ]
-                    ],
                   ),
                 ),
               ),
