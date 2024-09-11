@@ -1,7 +1,7 @@
 
 #  👻 Final Invitation
 
-An immersive journey that intertwines intricate horror storytelling with advanced mobile game application development. 
+An immersive journey that intertwines intricate horror storytelling with mobile game application development. 
 
 ### ℹ️ About the Project
 This repository contains the project entry made for the Application Development Exhibit in Pamantasan ng Lungsod ng Maynila 2024.
